@@ -1,0 +1,44 @@
+
+
+OS X Application Bundle Plugin
+
+  This plugin creates an Application Bundle for OS X containing all your project dependencies and the necessary metadata.
+
+  The application bundle will be packaged in a zip-file, allowing you to build it on Linux or Windows and then unpack it
+  as an application on OS X.
+
+  If this plugin is run on a Mac OS X platform it will also create a DMG disk image containing the Application Bundle.
+
+* Goals Overview
+
+  * {{{bundle-mojo.html}osxappbundle:bundle}} Create an application bundle and put it in a DMG/ZIP
+
+* Examples
+
+  To provide you with better understanding of some usages of the plugin,
+  you can take a look into the following examples:
+
+  * {{{examples/directrun.html}Running directly from the command line}}
+
+  * {{{examples/simple.html}Simple example with configuration in the POM}}
+
+  * {{{examples/custom-icon.html}Specifying a custom icon}}
+
+  * {{{examples/jvmversion.html}Specifying which version of the JVM to use}}
+
+  * {{{examples/crossplatform.html}Building on other platforms}}
+
+  * {{{examples/custom-dictionary.html}Using a custom Info.plist file}} (Advanced)
+
+  * {{{examples/additional-resources.html}Adding additional resources (README files etc) to your distribution}} (Advanced)
+
+* Howtos
+
+  * {{{howtos/ds-store.html} How to create a custom view for a dmg bundle}}
+  
+* Related links
+
+  * {{{http://developer.apple.com/documentation/Java/Conceptual/Java14Development/03-JavaDeployment/JavaDeployment.html#//apple_ref/doc/uid/TP40001885-208447-TPXREF120}Mac OS X Application Bundles}}
+  from the Apple Developer Connection web site.
+
+  * {{{http://sourceforge.net/projects/jarbundler/}SourceForge.net: JarBundler}} Ant task for creating Application Bundles.

@@ -1,0 +1,80 @@
+A mini-HOWTO on how to create a custom view for a dmg bundle on Mac OS
+
+
+    As you may know, a folder view on Mac OS X can be customized to have
+    a particular background (blank, color, or image), specific finder window
+    size, text and icons with custom properties (size, font...), and other
+    custom attributes.
+
+    All this information is stored in a .DS_Store file, which is located in
+    a folder you are trying to view. More about these files you can find
+    on Wikipedia: {{{http://en.wikipedia.org/wiki/.DS_Store}http://en.wikipedia.org/wiki/.DS_Store}}.
+
+    If a dmg bundle contains this file, Finder will use this information to
+    display the mounted dmg volume. It looks pretty cool/professional when a
+    mounted dmg package looks "themed" and customized. There are various tools
+    available that let you create custom dmg bundles, but you can easily do
+    it yourself, and here we describe how.
+
+
+* 1) Create a writable disk image using Apple's Disk Utility application:
+
+       * Open Disk Utility.
+
+       * Click <New Image>.
+
+       * Give this image exactly the same name that the new package is going to have;
+         note, that the disk image name should be the same.
+
+       * Make sure the size is large enough to store all files included with the
+         distribution; Encryption should be set no <none> and the <Format> must be
+         set to <read/write disk image>, other settings can be left with their
+         defaults.
+
+       * Click on <Create>.
+
+       * Navigate to the mounted image folder (the newly created disk image should
+         have been mounted automatically) and copy all files there that you are
+         planning to include with your distribution.
+
+* 2) Create custom folder settings for your new bundle:
+
+       * Create a <<<.background>>> folder in the new image folder and copy your
+         background image there - you will have to use command line for this task
+         since Finder may not let you create a system file (.* - a file that starts
+         with a period).
+
+       * Now open the image folder's view preferences (choose <Show View Options>)
+         and set specific settings you want for the distribution bundle folder,
+         but first make sure <This window only> is checked and not <All windows>.
+         You can set the font and icon size, set icons color labels, and, most
+         important, the folder's background. You may not be able to see the .background
+         folder, so hit <Apple+Shift+G> on your keyboard or choose <Go to folder> from the <Go> menu,
+         enter the path to the image folder (i.e., <<</Volumes/PrefCount/.background>>>)
+         and choose your background image. You can also close the navigation pane (the
+         one on the left), resize the window, and position the icons the way you want them.
+
+* 3) Configure Maven to use the new settings:
+
+       * After you complete customizing your new bundle folder, unmount the disk image
+         (OS X writes these changes to the .DS_Store file on a volume unmount event).
+         Test that the changes you've made were indeed written to the .DS_Store file
+         by mounting this disk image again and opening it.
+
+       * Now you can copy the .DS_Store file to your resources and configure the
+         assembly plugin to copy this file into the very top level of your distribution
+         bundle. You are done.
+
+* 4) Please be aware that:
+
+       * If you do not rename this custom .DS_Store file and accidentally open the folder
+         where it is stored in Finder, the custom configuration will get rewritten, so
+         you can either:
+
+         * set this file to be read-only (<<<chmod 444 filename>>> in command line); or
+
+         * rename this file and make sure it will get again renamed back to <<<.DS_Store>>>
+           during assembly's copy resources action.
+
+       * If you change the name for the dmg volume (i.e. application moves to the next
+         version), you will have to create a new <<<.DS_Store>>> file.

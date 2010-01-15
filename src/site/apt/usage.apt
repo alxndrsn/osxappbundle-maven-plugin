@@ -1,0 +1,6 @@
+Usage
+
+  This plugin can be {{{examples/directrun.html}run directly}} with <<<mvn osxappbundle:bundle>>> or you can
+  {{{examples/simple.html}configure your pom}} to create the bundle every time you run <<<mvn install>>>.
+
+  Please check out the examples in the left menu for tips various ways of customizing your bundle.

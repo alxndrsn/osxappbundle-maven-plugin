@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<component-set>
+  <components>
+    <component>
+      <role>org.codehaus.plexus.velocity.VelocityComponent</role>
+      <implementation>
+        org.codehaus.plexus.velocity.DefaultVelocityComponent
+      </implementation>
+      <configuration>
+        <properties>
+          <property>
+            <name>resource.loader</name>
+            <value>file,classpath</value>
+          </property>
+          <property>
+            <name>classpath.resource.loader.class</name>
+            <value>org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader</value>
+          </property>
+          <property>
+            <name>file.resource.loader.class</name>
+            <value>org.apache.velocity.runtime.resource.loader.FileResourceLoader</value>
+          </property>
+          <property>
+            <name>file.resource.loader.path</name>
+            <value></value>
+          </property>
+        </properties>
+      </configuration>
+    </component>
+  </components>
+</component-set>

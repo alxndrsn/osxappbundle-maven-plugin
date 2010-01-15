@@ -1,0 +1,41 @@
+Setting a custom icon
+
+  Unless otherwise specified your Application Bundle will have a default Java application icon.
+  This icon will be used on the application bundle itself and also on the dock.
+
+  The default icon might work just fine for you, but most people would want to create a custom icon.
+
+  Adding your own custom icon is quite easy. The file must be in the .icns format and you can create it
+  using a utility provided by Apple called "Icon Composer". You'll find this in /Developer/Applications/Utilities/Icon Composer.
+
+  After creating the file, save it somewhere inside your project directory and add an iconFile configuration property to you
+  pom specifying the location of the file, like this:
+
++------------------------------------------+
+ <project>
+    ...    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>osxappbundle-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <configuration>
+                    <mainClass>com.example.Main</mainClass>
+                    <iconFile>${basedir}/src/main/app-resources/myapplication.icns</iconFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+               </executions>
+           </plugin>
+           ...
+       </plugins>
+   <build>
+   ...
+ </project>
++------------------------------------------+

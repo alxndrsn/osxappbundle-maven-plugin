@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="Maven OS X Application Bundle Plugin">
+  <body>
+
+    <menu name="Overview">
+      <item name="Introduction" href="index.html"/>
+      <item name="Usage" href="usage.html"/>
+      <item name="FAQ" href="faq.html"/>
+      <item name="Goals" href="plugin-info.html"/>
+
+    </menu>
+
+    <menu name="Examples">
+      <item name="Run directly" href="examples/directrun.html"/>
+      <item name="POM configuration" href="examples/simple.html"/>
+      <item name="Custom icon" href="examples/custom-icon.html"/>
+      <item name="JVM version" href="examples/jvmversion.html"/>
+      <item name="Cross platform builds" href="examples/crossplatform.html"/>
+      <item name="Custom classpath" href="examples/systempaths.html"/>
+      <item name="Custom Info.plist" href="examples/custom-dictionary.html"/>
+      <item name="Additional resources" href="examples/additional-resources.html"/>
+    </menu>
+
+    <menu name="Howto">
+      <item name="Custom Finder view" href="howtos/ds-store.html"/>
+    </menu>
+  </body>
+</project>

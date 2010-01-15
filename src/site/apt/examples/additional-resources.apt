@@ -1,0 +1,43 @@
+Adding additional resources to your distribution
+
+  Sometimes it's convenient to add files to your DMG and ZIP distribution alongside the Application Bundle.
+
+  Example shows how to add a README.txt files to your distribution by using the "additionalResources" configuration option.
+
+
+
++------------------------------------------+
+ <project>
+    ...
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>osxappbundle-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <configuration>
+                    <mainClass>com.example.Main</mainClass>
+                    <additionalResources>
+                        <fileSet>
+                            <directory>${basedir}/src/main/app-resources</directory>
+                            <includes>
+                                <include>README.txt</include>
+                            </includes>
+                        </fileSet>
+                    </additionalResources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+               </executions>
+           </plugin>
+           ...
+       </plugins>
+   <build>
+   ...
+ </project>
++------------------------------------------+

@@ -1,0 +1,48 @@
+<document>
+	<properties>
+		<title>Maven OS X Application Bundle plugin changelog</title>
+		<author email="eirbjo at gmail dot com">
+			Eirik Bjorsnos
+		</author>
+	</properties>
+	<body>
+    <release version="1.0-alpha-2" date="2008-08-09">
+      <action dev="eirbjo" type="fix" issue="MOJO-1046" due-to="Max Berger">
+        Bundle creation fails on OS X without developer tools installed
+      </action>
+      <action dev="eirbjo" type="add" issue="MOJO-1117">
+        Allow additional resources to be included in the zip/dmg distributions
+      </action>
+      <action dev="eirbjo" type="add" issue="MOJO-1171">
+        Add a .DS_Store how-to on the project website.
+      </action>
+      <action dev="eirbjo" type="fix" issue="MOJO-946">
+        Don't hardcode the CFBundleExecutable name to "JavaApplicationStub"
+      </action>
+      <action dev="eirbjo" type="add">
+        Attach DMG and ZIP files so that they are installed/deployed.
+      </action>
+      <action dev="eirbjo" type="add" due-to="Oleksandr Maksymchuk" issue="MOJO-945">
+				Add flag to internet-enable the DMG.
+			</action>
+      <action dev="eirbjo" type="add">
+				dictionaryFile must now be absolute, like this: ${basedir}/src/resources/Info.plist.template.
+			</action>
+      <action dev="eirbjo" type="add">
+				Added vmOptions parameter that can be used to give parameters to the JVM.
+			</action>
+      <action dev="eirbjo" type="add">
+				Use plexus-mainclass-finder to automatically find a main class if none is configured.
+			</action>
+      <action dev="eirbjo" type="add" issue="MOJO-874" due-to="Paul Smith">
+				Ability to add custom classpath elements.
+			</action>
+      <action dev="eirbjo" type="fix">
+				Upgrade to Mojo parent pom 16 that includes site template.
+			</action>
+    </release>
+		<release version="1.0-alpha-1" date="2007-09-18"
+			description="First public release">
+		</release>
+	</body>
+</document>

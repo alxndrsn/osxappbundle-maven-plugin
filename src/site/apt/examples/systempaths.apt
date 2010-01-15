@@ -1,0 +1,36 @@
+Adding custom/system paths
+
+  Some times you may want to add a path to the classpath of your bundle without distributing the dependency with your bundle.
+
+  This example show how to add non-dependency paths to the class path of your bundle.
+
++------------------------------------------+
+ <project>
+    ...
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>osxappbundle-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <configuration>
+                    <mainClass>com.example.Main</mainClass>
+                    <additionalClasspath>
+                        <path>/System/Library/Somepath/somejar.jar</path>
+                    </additionalClasspath>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+               </executions>
+           </plugin>
+           ...
+       </plugins>
+   <build>
+   ...
+ </project>
++------------------------------------------+

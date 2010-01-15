@@ -1,0 +1,41 @@
+Specifying the JVM version
+
+  By default, your application will run in Java 1.4.2.
+
+  If you want your application to run with an alternate version of Apples JVM, you may do so by
+  specifying the "jvmVersion" configuration option.
+
+  The following example sets the jvmVersion to 1.5+, meaning that the application will run on the highest
+  version of J2SE 5.0 available.
+
+  Please refer to the {{{http://developer.apple.com/documentation/Java/Conceptual/JavaPropVMInfoRef/Articles/JavaDictionaryInfo.plistKeys.html}Apple documentation}}
+  for details on which values are allowed for the jvmVersion property.
+
++------------------------------------------+
+ <project>
+    ...    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>osxappbundle-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <configuration>
+                    <mainClass>com.example.Main</mainClass>
+                    <jvmVersion>1.5+</jvmVersion>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+               </executions>
+           </plugin>
+           ...
+       </plugins>
+   <build>
+   ...
+ </project>
++------------------------------------------+

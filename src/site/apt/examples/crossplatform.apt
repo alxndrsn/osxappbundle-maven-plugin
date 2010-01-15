@@ -1,0 +1,41 @@
+Building the Application Bundle on non OS X platforms
+
+  This plugin can build OS X Application Bundles also on non OS X platforms.
+
+  To do this you'll have to make a copy of the JavaApplicationStub executable from an OS X installation and put it
+  inside your projecs. You'll also have to override the location of this stub in the POM configuration of your project,
+  like this:
+
++------------------------------------------+
+<project>
+    ...
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>osxappbundle-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <configuration>
+                    <mainClass>com.example.Main</mainClass>
+                    <javaApplicationStub>${basedir}/src/main/app-resources/JavaApplicationStub</javaApplicationStub>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+               </executions>
+           </plugin>
+           ...
+       </plugins>
+   <build>
+   ...
+</project>
++------------------------------------------+
+
+  Things to be aware of:
+ 
+  * The DMG disk image will only be built on OS X
+

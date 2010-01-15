@@ -1,0 +1,11 @@
+Running the plugin from the command line
+
+  The easiest way to use this plugin is to run it on the Maven command line:
+
++------------------------------------------+
+
+  mvn package osxappbundle:bundle -DmainClass=com.example.Main
+
++------------------------------------------+
+
+  This will produce an Application Bundle and a .dmg in the target/ directory.
