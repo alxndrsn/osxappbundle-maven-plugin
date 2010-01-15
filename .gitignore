@@ -1,0 +1,8 @@
+# Maven temporary files
+target/
+
+# Eclipse temporary files
+.settings/
+.project
+.classpath
+
