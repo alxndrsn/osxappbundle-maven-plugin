@@ -113,6 +113,14 @@ public class CreateApplicationBundleMojo
      * @required
      */
     private String bundleName;
+    
+    /**
+     * The path to the working directory.  This can be inside or outside the app bundle.  To
+     * define a working directory <b>inside</b> the app bundle, use e.g. <code>$JAVAROOT</code>.
+     * 
+     * @parameter default-value="$APP_PACKAGE"
+     */
+    private String workingDirectory;
 
 
     /**
@@ -534,6 +542,7 @@ public class CreateApplicationBundleMojo
         velocityContext.put( "cfBundleExecutable", javaApplicationStub.getName());
         velocityContext.put( "vmOptions", vmOptions);
         velocityContext.put( "bundleName", bundleName );
+        velocityContext.put( "workingDirectory", workingDirectory);
 
         velocityContext.put( "iconFile", iconFile == null ? "GenericJavaApp.icns" : iconFile.getName() );
 

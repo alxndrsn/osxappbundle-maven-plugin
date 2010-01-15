@@ -26,6 +26,8 @@
       <string>${mainClass}</string>
       <key>JVMVersion</key>
       <string>${jvmVersion}</string>
+      <key>WorkingDirectory</key>
+      <string>${workingDirectory}</string>
       <key>ClassPath</key>
       ${classpath}
       #if($vmOptions)
