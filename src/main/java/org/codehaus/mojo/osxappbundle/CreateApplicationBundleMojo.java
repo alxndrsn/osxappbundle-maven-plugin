@@ -500,8 +500,22 @@ public class CreateApplicationBundleMojo
     	
 		List addedFilenames = copyResources(destinationDirectory, additionalBundledClasspathResources);
 		
-		return addedFilenames;
+		return addPath(addedFilenames, targetDirectoryName);
 	}
+    
+    /**
+     * Modifies a String list of filenames to include an additional path.
+     * @param filenames
+     * @param additionalPath
+     * @return
+     */
+    private List addPath(List filenames, String additionalPath) {
+    	ArrayList newFilenames = new ArrayList(filenames.size());
+    	for (int i = 0; i < filenames.size(); i++) {
+    		newFilenames.add(additionalPath + '/' + filenames.get(i));
+		}
+    	return newFilenames;
+    }
 
     /**
      * Writes an Info.plist file describing this bundle.
