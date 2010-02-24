@@ -8,8 +8,9 @@
 	</parent>
 
 	<artifactId>osxappbundle-maven-plugin</artifactId>
+	<groupId>net.frontlinesms.build</groupId>
 	<packaging>maven-plugin</packaging>
-	<version>1.0-alpha-2-aga-SNAPSHOT</version>
+	<version>1.0</version>
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -19,17 +20,14 @@
 	</licenses>
 	<inceptionYear>2007</inceptionYear>
 	<name>Maven OS X Application Bundle Plugin</name>
-	<description>A Maven Plugin for generating Mac OS X Application Bundles of Java applications and packaging them as a
-    DMG disk image.</description>
+	<description>A Maven Plugin for generating Mac OS X Application Bundles of Java applications and packaging them as a DMG disk image.
+		This fork created specially for Frontline</description>
 	<url>http://mojo.codehaus.org/osxappbundle-maven-plugin/</url>
 	<prerequisites>
 		<maven>2.0.4</maven>
 	</prerequisites>
 
 	<scm>
-		<connection>scm:svn:http://svn.codehaus.org/mojo/tags/osxappbundle-maven-plugin-1.0-alpha-2</connection>
-		<developerConnection>scm:svn:https://svn.codehaus.org/mojo/tags/osxappbundle-maven-plugin-1.0-alpha-2</developerConnection>
-		<url>http://fisheye.codehaus.org/browse/mojo/tags/osxappbundle-maven-plugin-1.0-alpha-2</url>
 	</scm>
 
 	<developers>
