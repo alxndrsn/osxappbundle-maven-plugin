@@ -338,7 +338,8 @@ public class CreateApplicationBundleMojo
                 try
                 {
                     setFile.setExecutable(SET_FILE_PATH);
-                    setFile.createArgument().setValue( "-a B" );
+                    setFile.createArgument().setValue( "-a" );
+                    setFile.createArgument().setValue( "B" );
                     setFile.createArgument().setValue( bundleDir.getAbsolutePath() );
 
                     setFile.execute();
@@ -427,6 +428,16 @@ public class CreateApplicationBundleMojo
         }
 
 
+    }
+
+    /**
+     * The bundle name is used in paths, so we need to clean it for
+     * unwanted characters, like ":" on Windows.
+     * @param bundleName the "unclean" bundle name.
+     * @return a clean bundle name
+     */
+    private String cleanBundleName(String bundleName) {
+        return bundleName.replace(':', '-');
     }
 
 	private boolean isOsX()
@@ -541,7 +552,7 @@ public class CreateApplicationBundleMojo
         velocityContext.put( "mainClass", mainClass );
         velocityContext.put( "cfBundleExecutable", javaApplicationStub.getName());
         velocityContext.put( "vmOptions", vmOptions);
-        velocityContext.put( "bundleName", bundleName );
+        velocityContext.put( "bundleName", cleanBundleName(bundleName) );
         velocityContext.put( "workingDirectory", workingDirectory);
 
         velocityContext.put( "iconFile", iconFile == null ? "GenericJavaApp.icns" : iconFile.getName() );
